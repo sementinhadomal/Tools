@@ -133,9 +133,18 @@
     /* RESUMO DESKTOP — sempre visível no topo do painel direito */
     .order-summary-desktop { display: block; }
     .order-summary-mobile { display: none; }
+    .mobile-logo-header { display: none; }
 
     /* MOBILE */
     @media (max-width: 768px) {
+      .desktop-logo { display: none !important; }
+      .mobile-logo-header {
+        display: block;
+        padding: 16px;
+        text-align: left;
+        border-bottom: 1px solid #e1e1e1;
+        background: #ffffff;
+      }
       .checkout-wrap { flex-direction: column; }
 
       .checkout-right {
@@ -199,6 +208,9 @@
 
   <!-- ════════════ ESQUERDO ════════════ -->
   <div class="checkout-left">
+    <a href="../index.html" class="shop-logo desktop-logo">
+      <img src="../images/tooldenlogo_white_2000x525px_1736154984__26440.webp" alt="Toolden" style="height: 34px; max-width: 160px; filter: invert(1);">
+    </a>
 
     <div class="section-title">Contact Information</div>
     <div class="field-row">
@@ -280,6 +292,11 @@
 
   <!-- ════════════ DIREITO ════════════ -->
   <div class="checkout-right">
+    <div class="mobile-logo-header">
+      <a href="../index.html" class="shop-logo">
+        <img src="../images/tooldenlogo_white_2000x525px_1736154984__26440.webp" alt="Toolden" style="height: 28px; max-width: 130px; filter: invert(1);">
+      </a>
+    </div>
 
     <!-- Resumo DESKTOP — sempre visível no topo, sem toggle -->
     <div class="order-summary-desktop">
