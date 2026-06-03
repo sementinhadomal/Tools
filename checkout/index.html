@@ -253,8 +253,8 @@
 
     <div class="field-row">
       <div class="field-group" style="max-width:140px">
-        <label for="plz">ZIP / Postal Code</label>
-        <input type="text" id="plz" placeholder="00000" maxlength="10" oninput="fmtPlz(this)">
+        <label for="plz">Postcode</label>
+        <input type="text" id="plz" placeholder="e.g. SW1A 1AA" maxlength="8" oninput="fmtPlz(this)">
       </div>
       <div class="field-group">
         <label for="city">City</label>
@@ -275,7 +275,7 @@
     <div class="whop-left-block">
       <hr class="section-divider">
       <div class="section-title">Payment</div>
-      <div class="whop-container" data-whop-checkout-plan-id="plan_eJpThCdnLQvGY" data-whop-checkout-theme="light" data-whop-checkout-style-container-padding-x="0" data-whop-checkout-style-container-padding-top="0"></div>
+      <div class="whop-container" data-whop-checkout-plan-id="plan_eJpThCdnLQvGY" data-whop-checkout-theme="light" data-whop-checkout-locale="en" data-whop-checkout-style-container-padding-x="0" data-whop-checkout-style-container-padding-top="0"></div>
       <div class="secure-note">
         <svg width="11" height="13" viewBox="0 0 12 14" fill="none"><path d="M6 0L0 2.5V6.5C0 9.8 2.6 12.9 6 14C9.4 12.9 12 9.8 12 6.5V2.5L6 0Z" fill="#ccc"></path></svg>
         Secure and encrypted transaction
@@ -361,7 +361,7 @@
     <div class="whop-right-block">
       <hr class="whop-divider">
       <div class="section-title" style="margin-bottom:14px;">Payment</div>
-      <div class="whop-container" data-whop-checkout-plan-id="plan_eJpThCdnLQvGY" data-whop-checkout-theme="light" data-whop-checkout-style-container-padding-x="0" data-whop-checkout-style-container-padding-top="0"></div>
+      <div class="whop-container" data-whop-checkout-plan-id="plan_eJpThCdnLQvGY" data-whop-checkout-theme="light" data-whop-checkout-locale="en" data-whop-checkout-style-container-padding-x="0" data-whop-checkout-style-container-padding-top="0"></div>
       <div class="secure-note">
         <svg width="11" height="13" viewBox="0 0 12 14" fill="none"><path d="M6 0L0 2.5V6.5C0 9.8 2.6 12.9 6 14C9.4 12.9 12 9.8 12 6.5V2.5L6 0Z" fill="#ccc"></path></svg>
         Secure and encrypted transaction
@@ -415,8 +415,15 @@
     var rs  = document.getElementById('region');
     var plz = document.getElementById('plz');
     var len = plzLengths[val] || 10;
-    plz.maxLength = len;
-    plz.placeholder = '00000';
+    
+    if (val === 'GB') {
+      plz.maxLength = 8;
+      plz.placeholder = 'e.g. SW1A 1AA';
+    } else {
+      plz.maxLength = len;
+      plz.placeholder = '00000';
+    }
+    
     var data = regions[val];
     if (data) {
       rl.textContent = data.label;
@@ -430,8 +437,12 @@
 
   function fmtPlz(el) {
     var country = document.getElementById('country').value;
-    var len = plzLengths[country] || 5;
-    el.value = el.value.replace(/\D/g,'').slice(0, len);
+    if (country === 'GB') {
+      el.value = el.value.toUpperCase().replace(/[^A-Z0-9 ]/g, '').slice(0, 8);
+    } else {
+      var len = plzLengths[country] || 5;
+      el.value = el.value.replace(/\D/g,'').slice(0, len);
+    }
   }
 
   onCountryChange(document.getElementById('country'));

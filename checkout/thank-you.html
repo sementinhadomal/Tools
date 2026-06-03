@@ -1,0 +1,1316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You For Your Order | Toolden</title>
+    <meta name="description" content="Thank you for shopping at Toolden. Your premium order is already in transit. Expect your tracking details in your email in 4-6 days.">
+    
+    <!-- Open Graph / SEO -->
+    <meta property="og:title" content="Order Confirmed | Toolden">
+    <meta property="og:description" content="Your exclusive purchase is already in route. Track details arriving via email.">
+    <meta property="og:type" content="website">
+    
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1014024587850948');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1014024587850948&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+
+    <!-- Utmify Pixel Integration -->
+    <script>
+      window.pixelId = "68a7a7ba5f9c626b0700177d";
+      var a = document.createElement("script");
+      a.setAttribute("async", "");
+      a.setAttribute("defer", "");
+      a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+      document.head.appendChild(a);
+    </script>
+
+    <!-- Utmify UTMs Capture Script -->
+    <script
+      src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+      data-utmify-prevent-xcod-sck
+      data-utmify-prevent-subids
+      async
+      defer
+    ></script>
+
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&display=swap');
+
+      /* --- CUSTOM VARIABLES --- */
+      :root {
+          --font-heading: 'Montserrat', sans-serif;
+          --font-body: 'Outfit', sans-serif;
+          
+          --bg-primary: #080808;
+          --bg-secondary: #0f0f10;
+          --bg-card: rgba(18, 18, 20, 0.65);
+          --border-color: rgba(255, 255, 255, 0.07);
+          --border-hover: rgba(255, 255, 255, 0.18);
+          
+          --text-primary: #ffffff;
+          --text-secondary: #8e8e93;
+          --text-muted: #5e5e62;
+          
+          --white-glow: rgba(255, 255, 255, 0.15);
+          --white-glow-strong: rgba(255, 255, 255, 0.4);
+          
+          --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      /* --- RESET & BASE STYLES --- */
+      * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+      }
+
+      html, body {
+          width: 100%;
+          min-height: 100%;
+          background-color: var(--bg-primary);
+          color: var(--text-primary);
+          font-family: var(--font-body);
+          overflow-x: hidden;
+          scroll-behavior: smooth;
+          line-height: 1.6;
+      }
+
+      /* Scrollbar Customization */
+      ::-webkit-scrollbar {
+          width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+          background: var(--bg-primary);
+      }
+      ::-webkit-scrollbar-thumb {
+          background: #2c2c2e;
+          border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+          background: #48484a;
+      }
+
+      /* Background Gradients */
+      .background-canvas {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          z-index: -1;
+          pointer-events: none;
+      }
+
+      .gradient-overlay {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: radial-gradient(circle at 50% -20%, rgba(255, 255, 255, 0.05) 0%, rgba(8, 8, 8, 0) 70%),
+                      radial-gradient(circle at 0% 100%, rgba(255, 255, 255, 0.02) 0%, rgba(8, 8, 8, 0) 50%);
+          z-index: -1;
+          pointer-events: none;
+      }
+
+      /* --- LAYOUT WRAPPER --- */
+      .container {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 0 24px;
+      }
+
+      /* --- HEADER --- */
+      .header {
+          padding: 32px 0;
+          border-bottom: 1px solid var(--border-color);
+          background: rgba(8, 8, 8, 0.8);
+          backdrop-filter: blur(12px);
+          -webkit-backdrop-filter: blur(12px);
+          position: sticky;
+          top: 0;
+          z-index: 100;
+      }
+
+      .header-container {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+      }
+
+      .brand-logo {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          text-decoration: none;
+          color: var(--text-primary);
+      }
+
+      .brand-name {
+          font-family: var(--font-heading);
+          font-weight: 800;
+          font-size: 1.3rem;
+          letter-spacing: 0.25em;
+          text-transform: uppercase;
+          background: linear-gradient(180deg, #ffffff 0%, #a1a1aa 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+      }
+
+      .nav-link {
+          font-size: 0.85rem;
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+          color: var(--text-secondary);
+          text-decoration: none;
+          transition: var(--transition-smooth);
+          border: 1px solid var(--border-color);
+          padding: 8px 20px;
+          border-radius: 40px;
+          background: rgba(255, 255, 255, 0.02);
+      }
+
+      .nav-link:hover {
+          color: var(--text-primary);
+          border-color: var(--text-primary);
+          box-shadow: 0 0 15px var(--white-glow);
+      }
+
+      /* --- MAIN LAYOUT --- */
+      .main-grid {
+          display: grid;
+          grid-template-columns: 1.2fr 0.8fr;
+          gap: 48px;
+          margin-top: 64px;
+          margin-bottom: 96px;
+          align-items: start;
+      }
+
+      @media (max-width: 992px) {
+          .main-grid {
+              grid-template-columns: 1fr;
+              gap: 40px;
+              margin-top: 40px;
+          }
+      }
+
+      /* --- HERO & THANK YOU SECTION --- */
+      .thank-you-card {
+          background: var(--bg-card);
+          border: 1px solid var(--border-color);
+          border-radius: 24px;
+          padding: 48px;
+          backdrop-filter: blur(20px);
+          -webkit-backdrop-filter: blur(20px);
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+          position: relative;
+          overflow: hidden;
+          animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .thank-you-card::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 3px;
+          background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+      }
+
+      .badge-wrapper {
+          margin-bottom: 24px;
+      }
+
+      .success-badge {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          background: rgba(255, 255, 255, 0.05);
+          border: 1px solid rgba(255, 255, 255, 0.15);
+          padding: 6px 16px;
+          border-radius: 100px;
+          font-size: 0.75rem;
+          font-weight: 600;
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+          color: var(--text-primary);
+      }
+
+      .success-badge .dot {
+          width: 6px;
+          height: 6px;
+          background-color: #34c759;
+          border-radius: 50%;
+          box-shadow: 0 0 10px #34c759;
+          animation: blink 1.8s infinite ease-in-out;
+      }
+
+      .main-title {
+          font-family: var(--font-heading);
+          font-size: 2.8rem;
+          font-weight: 700;
+          line-height: 1.15;
+          letter-spacing: -0.02em;
+          margin-bottom: 16px;
+      }
+
+      .main-title span {
+          font-weight: 300;
+          color: var(--text-secondary);
+      }
+
+      .sub-title {
+          font-size: 1.05rem;
+          color: var(--text-secondary);
+          margin-bottom: 40px;
+          max-width: 600px;
+      }
+
+      /* --- ORDER TRACKING TIMELINE --- */
+      .tracking-wrapper {
+          margin-bottom: 48px;
+      }
+
+      .tracking-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 24px;
+          padding-bottom: 16px;
+          border-bottom: 1px solid var(--border-color);
+      }
+
+      .tracking-title {
+          font-family: var(--font-heading);
+          font-size: 0.85rem;
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+          color: var(--text-secondary);
+      }
+
+      .order-number {
+          font-family: var(--font-body);
+          font-size: 0.85rem;
+          font-weight: 600;
+          color: var(--text-primary);
+          cursor: pointer;
+          background: rgba(255, 255, 255, 0.05);
+          padding: 4px 12px;
+          border-radius: 6px;
+          border: 1px solid var(--border-color);
+          transition: var(--transition-smooth);
+      }
+
+      .order-number:hover {
+          border-color: var(--text-primary);
+          background: rgba(255, 255, 255, 0.1);
+      }
+
+      .timeline {
+          position: relative;
+          display: flex;
+          justify-content: space-between;
+          margin-top: 40px;
+      }
+
+      .timeline-line {
+          position: absolute;
+          top: 14px;
+          left: 4%;
+          right: 4%;
+          height: 2px;
+          background: rgba(255, 255, 255, 0.05);
+          z-index: 1;
+      }
+
+      .timeline-progress {
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 100%;
+          background: linear-gradient(90deg, #ffffff, rgba(255, 255, 255, 0.3));
+          width: 50%; /* Reached step 2 (In Transit) */
+          z-index: 2;
+          box-shadow: 0 0 10px rgba(255,255,255,0.5);
+          animation: loadProgress 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      }
+
+      .timeline-step {
+          position: relative;
+          z-index: 3;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: 25%;
+          text-align: center;
+      }
+
+      .step-node {
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+          background: var(--bg-secondary);
+          border: 2px solid rgba(255, 255, 255, 0.1);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-bottom: 12px;
+          transition: var(--transition-smooth);
+          font-size: 0.75rem;
+          color: var(--text-muted);
+      }
+
+      .step-label {
+          font-size: 0.75rem;
+          font-weight: 600;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+          color: var(--text-muted);
+          transition: var(--transition-smooth);
+      }
+
+      .step-sublabel {
+          font-size: 0.65rem;
+          color: var(--text-muted);
+          margin-top: 4px;
+      }
+
+      /* Completed Steps */
+      .timeline-step.completed .step-node {
+          background: #ffffff;
+          border-color: #ffffff;
+          color: #000000;
+          box-shadow: 0 0 12px rgba(255, 255, 255, 0.3);
+      }
+
+      .timeline-step.completed .step-label {
+          color: var(--text-primary);
+      }
+
+      /* Active Step: In Route */
+      .timeline-step.active .step-node {
+          background: var(--bg-primary);
+          border-color: #ffffff;
+          color: #ffffff;
+          box-shadow: 0 0 18px rgba(255, 255, 255, 0.8);
+          position: relative;
+          animation: activeGlow 2s infinite alternate;
+      }
+
+      .timeline-step.active .step-node::after {
+          content: '';
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+          border: 2px solid #ffffff;
+          animation: ripple 2s infinite;
+      }
+
+      .timeline-step.active .step-label {
+          color: #ffffff;
+          font-weight: 700;
+      }
+
+      .timeline-step.active .step-sublabel {
+          color: var(--text-secondary);
+      }
+
+      /* --- DYNAMIC INFO BOX --- */
+      .info-card {
+          background: rgba(255, 255, 255, 0.02);
+          border: 1px solid var(--border-color);
+          border-radius: 16px;
+          padding: 28px;
+          display: flex;
+          gap: 20px;
+          align-items: flex-start;
+          transition: var(--transition-smooth);
+      }
+
+      .info-card:hover {
+          background: rgba(255, 255, 255, 0.04);
+          border-color: var(--border-hover);
+      }
+
+      .info-icon {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 44px;
+          height: 44px;
+          border-radius: 50%;
+          background: rgba(255, 255, 255, 0.05);
+          border: 1px solid var(--border-color);
+          flex-shrink: 0;
+      }
+
+      .info-icon svg {
+          width: 20px;
+          height: 20px;
+          color: var(--text-primary);
+      }
+
+      .info-content h3 {
+          font-family: var(--font-heading);
+          font-size: 0.95rem;
+          font-weight: 700;
+          letter-spacing: 0.05em;
+          text-transform: uppercase;
+          margin-bottom: 8px;
+      }
+
+      .info-content p {
+          font-size: 0.85rem;
+          color: var(--text-secondary);
+          line-height: 1.5;
+      }
+
+      .highlight-box {
+          margin-top: 12px;
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          background: rgba(255, 255, 255, 0.05);
+          padding: 6px 14px;
+          border-radius: 8px;
+          font-size: 0.75rem;
+          font-weight: 700;
+          color: #ffffff;
+          border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      /* --- SIDEBAR & VISUAL FEATURE --- */
+      .sidebar {
+          display: flex;
+          flex-direction: column;
+          gap: 32px;
+          animation: slideUp 1s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .editorial-image-wrapper {
+          position: relative;
+          border-radius: 24px;
+          overflow: hidden;
+          aspect-ratio: 4 / 5;
+          border: 1px solid var(--border-color);
+          box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+      }
+
+      .editorial-image {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          filter: grayscale(1) contrast(1.1) brightness(0.9);
+          transition: var(--transition-smooth);
+      }
+
+      .editorial-image-wrapper:hover .editorial-image {
+          transform: scale(1.03);
+          filter: grayscale(0.85) contrast(1.15) brightness(0.95);
+      }
+
+      .image-overlay {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          height: 50%;
+          background: linear-gradient(0deg, rgba(8,8,8,0.95) 0%, rgba(8,8,8,0) 100%);
+          padding: 24px;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-end;
+      }
+
+      .image-brand {
+          font-family: var(--font-heading);
+          font-size: 0.7rem;
+          font-weight: 800;
+          letter-spacing: 0.3em;
+          text-transform: uppercase;
+          color: var(--text-secondary);
+          margin-bottom: 6px;
+      }
+
+      .image-quote {
+          font-family: var(--font-heading);
+          font-size: 1.1rem;
+          font-weight: 300;
+          color: #ffffff;
+          line-height: 1.3;
+      }
+
+      /* --- ORDER SUMMARY ACCORDION --- */
+      .summary-card {
+          background: var(--bg-card);
+          border: 1px solid var(--border-color);
+          border-radius: 20px;
+          padding: 24px;
+          backdrop-filter: blur(20px);
+          -webkit-backdrop-filter: blur(20px);
+      }
+
+      .summary-title {
+          font-family: var(--font-heading);
+          font-size: 0.85rem;
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+          color: var(--text-secondary);
+          margin-bottom: 16px;
+          display: flex;
+          justify-content: space-between;
+      }
+
+      .summary-item {
+          display: flex;
+          justify-content: space-between;
+          font-size: 0.85rem;
+          margin-bottom: 12px;
+          color: var(--text-secondary);
+      }
+
+      .summary-item.total {
+          border-top: 1px solid var(--border-color);
+          padding-top: 12px;
+          margin-top: 12px;
+          color: var(--text-primary);
+          font-weight: 700;
+          font-size: 0.95rem;
+      }
+
+      /* --- FAQ ACCORDION SECTION --- */
+      .faq-section {
+          margin-top: 64px;
+          margin-bottom: 96px;
+      }
+
+      .faq-title {
+          font-family: var(--font-heading);
+          font-size: 1.6rem;
+          font-weight: 700;
+          letter-spacing: -0.01em;
+          margin-bottom: 32px;
+          text-align: center;
+      }
+
+      .faq-grid {
+          max-width: 800px;
+          margin: 0 auto;
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+      }
+
+      .faq-item {
+          background: var(--bg-card);
+          border: 1px solid var(--border-color);
+          border-radius: 14px;
+          overflow: hidden;
+          transition: var(--transition-smooth);
+      }
+
+      .faq-item:hover {
+          border-color: var(--border-hover);
+      }
+
+      .faq-trigger {
+          width: 100%;
+          padding: 20px 24px;
+          background: transparent;
+          border: none;
+          text-align: left;
+          color: var(--text-primary);
+          font-family: var(--font-body);
+          font-size: 0.95rem;
+          font-weight: 600;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          cursor: pointer;
+          outline: none;
+      }
+
+      .faq-icon {
+          width: 18px;
+          height: 18px;
+          color: var(--text-secondary);
+          transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .faq-content {
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .faq-inner {
+          padding: 0 24px 20px 24px;
+          font-size: 0.85rem;
+          color: var(--text-secondary);
+          line-height: 1.6;
+      }
+
+      /* Active FAQ State */
+      .faq-item.active {
+          border-color: rgba(255,255,255,0.25);
+          background: rgba(255, 255, 255, 0.02);
+      }
+
+      .faq-item.active .faq-icon {
+          transform: rotate(45deg);
+          color: var(--text-primary);
+      }
+
+      /* --- FOOTER --- */
+      .footer {
+          padding: 64px 0 32px 0;
+          border-top: 1px solid var(--border-color);
+          background-color: #050505;
+      }
+
+      .footer-main {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          flex-wrap: wrap;
+          gap: 32px;
+          margin-bottom: 40px;
+      }
+
+      .footer-brand {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+      }
+
+      .footer-bottom {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          flex-wrap: wrap;
+          gap: 16px;
+          padding-top: 32px;
+          border-top: 1px solid rgba(255, 255, 255, 0.03);
+      }
+
+      .copyright {
+          font-size: 0.75rem;
+          color: var(--text-muted);
+      }
+
+      .footer-legal {
+          display: flex;
+          gap: 24px;
+      }
+
+      .legal-link {
+          font-size: 0.75rem;
+          color: var(--text-muted);
+          text-decoration: none;
+          transition: var(--transition-smooth);
+      }
+
+      .legal-link:hover {
+          color: var(--text-primary);
+      }
+
+      /* --- ANIMATIONS --- */
+      @keyframes pulseGlow {
+          0% {
+              filter: drop-shadow(0 0 2px rgba(255,255,255,0.1));
+          }
+          100% {
+              filter: drop-shadow(0 0 10px rgba(255,255,255,0.5));
+          }
+      }
+
+      @keyframes blink {
+          0%, 100% {
+              opacity: 1;
+              transform: scale(1);
+              box-shadow: 0 0 10px rgba(52, 199, 137, 0.7);
+          }
+          50% {
+              opacity: 0.3;
+              transform: scale(0.85);
+              box-shadow: 0 0 4px rgba(52, 199, 137, 0.2);
+          }
+      }
+
+      @keyframes ripple {
+          0% {
+              transform: scale(1);
+              opacity: 0.8;
+          }
+          100% {
+              transform: scale(1.6);
+              opacity: 0;
+          }
+      }
+
+      @keyframes activeGlow {
+          0% {
+              box-shadow: 0 0 8px rgba(255,255,255,0.4);
+          }
+          100% {
+              box-shadow: 0 0 20px rgba(255,255,255,0.8);
+          }
+      }
+
+      @keyframes slideUp {
+          0% {
+              opacity: 0;
+              transform: translateY(30px);
+          }
+          100% {
+              opacity: 1;
+              transform: translateY(0);
+          }
+      }
+
+      @keyframes loadProgress {
+          0% {
+              width: 0%;
+          }
+          100% {
+              width: 50%;
+          }
+      }
+
+      /* Toast Copy Notification */
+      .toast {
+          position: fixed;
+          bottom: 32px;
+          left: 50%;
+          transform: translateX(-50%) translateY(100px);
+          background: rgba(255, 255, 255, 0.95);
+          color: #000000;
+          font-size: 0.8rem;
+          font-weight: 700;
+          letter-spacing: 0.05em;
+          text-transform: uppercase;
+          padding: 12px 24px;
+          border-radius: 40px;
+          box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+          z-index: 1000;
+          opacity: 0;
+          transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+          pointer-events: none;
+      }
+
+      .toast.show {
+          transform: translateX(-50%) translateY(0);
+          opacity: 1;
+      }
+
+      /* Mobile Adjustments */
+      @media (max-width: 768px) {
+          .main-title {
+              font-size: 2.2rem;
+          }
+          
+          .thank-you-card {
+              padding: 32px 20px;
+          }
+          
+          .timeline {
+              flex-direction: column;
+              align-items: flex-start;
+              gap: 32px;
+              margin-top: 24px;
+              padding-left: 20px;
+          }
+          
+          .timeline-line {
+              top: 4%;
+              bottom: 4%;
+              left: 24px;
+              width: 2px;
+              height: auto;
+          }
+          
+          .timeline-progress {
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 50%; /* Reached step 2 (In Transit) */
+          }
+          
+          .timeline-step {
+              width: 100%;
+              flex-direction: row;
+              text-align: left;
+              gap: 20px;
+          }
+          
+          .step-node {
+              margin-bottom: 0;
+          }
+          
+          .info-card {
+              flex-direction: column;
+              align-items: center;
+              text-align: center;
+          }
+      }
+    </style>
+</head>
+<body>
+
+    <!-- Subtle background animation canvas -->
+    <canvas id="bg-canvas" class="background-canvas"></canvas>
+    <div class="gradient-overlay"></div>
+
+    <!-- Header -->
+    <header class="header" id="main-header">
+        <div class="container header-container">
+            <a href="../index.html" class="brand-logo" id="brand-logo-link">
+                <img src="../images/tooldenlogo_white_2000x525px_1736154984__26440.webp" alt="Toolden Logo" style="height: 32px; max-width: 150px;">
+            </a>
+            <a href="../index.html" class="nav-link" id="visit-store-btn">Visit Store</a>
+        </div>
+    </header>
+
+    <!-- Main Content Grid -->
+    <main class="container main-grid" id="landing-main">
+        
+        <!-- Left Side: Order Status & Timings -->
+        <section class="order-status-section" id="status-section">
+            <div class="thank-you-card" id="main-thank-you-card">
+                <div class="badge-wrapper">
+                    <div class="success-badge" id="success-badge-container">
+                        <span class="dot"></span>
+                        Order Confirmed
+                    </div>
+                </div>
+                
+                <h1 class="main-title" id="page-hero-title">
+                    Thank you. <br>
+                    <span>Your order is already in route.</span>
+                </h1>
+                
+                <p class="sub-title">
+                    We appreciate your trust in Toolden. Our dispatch warehouse has processed your order, and the courier has already received the package.
+                </p>
+
+                <!-- Stepper Progress Tracker -->
+                <div class="tracking-wrapper" id="order-tracking-stepper">
+                    <div class="tracking-header">
+                        <span class="tracking-title">Shipment Tracker</span>
+                        <span class="order-number" id="order-number" title="Click to copy order ID">
+                            #TD-98246X
+                        </span>
+                    </div>
+
+                    <div class="timeline" id="status-timeline">
+                        <div class="timeline-line">
+                            <div class="timeline-progress" id="progress-bar"></div>
+                        </div>
+
+                        <!-- Step 1: Confirmed -->
+                        <div class="timeline-step completed" id="step-confirmed">
+                            <div class="step-node">✓</div>
+                            <span class="step-label">Confirmed</span>
+                            <span class="step-sublabel">Processing done</span>
+                        </div>
+
+                        <!-- Step 2: In Route -->
+                        <div class="timeline-step active" id="step-in-route">
+                            <div class="step-node">2</div>
+                            <span class="step-label">In Route</span>
+                            <span class="step-sublabel">Parcel in transit</span>
+                        </div>
+
+                        <!-- Step 3: Out for Delivery -->
+                        <div class="timeline-step" id="step-out-delivery">
+                            <div class="step-node">3</div>
+                            <span class="step-label">On Its Way</span>
+                            <span class="step-sublabel">Local sorting</span>
+                        </div>
+
+                        <!-- Step 4: Arrived -->
+                        <div class="timeline-step" id="step-delivered">
+                            <div class="step-node">✓</div>
+                            <span class="step-label">Delivered</span>
+                            <span class="step-sublabel">Signature required</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Shipping / Tracking Alert Notice -->
+                <div class="info-card" id="tracking-dispatch-info">
+                    <div class="info-icon">
+                        <!-- Modern Delivery Truck SVG -->
+                        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="1" y="3" width="15" height="13"></rect>
+                            <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+                            <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                            <circle cx="18.5" cy="18.5" r="2.5"></circle>
+                        </svg>
+                    </div>
+                    <div class="info-content">
+                        <h3>Tracking Dispatch Details</h3>
+                        <p>
+                            Your parcel is officially on its way! Within <strong>3 to 5 business days</strong>, a live tracking link and complete route details will be sent directly to your registered email address.
+                        </p>
+                        <div class="highlight-box" id="notice-pill">
+                            <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px;">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="12" y1="16" x2="12" y2="12"></line>
+                                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                            </svg>
+                            Tracking email arriving in 3-5 days
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Right Side: Graphic Showcase & Summary -->
+        <aside class="sidebar" id="sidebar-container">
+            
+            <!-- Delivery Package Image Overlay Card -->
+            <div class="editorial-image-wrapper" id="delivery-image-container">
+                <img src="../images/imgi_3_1_fa8088de-418e-403c-a97e-738a07b0fa4f_1080x-768x768.png" alt="DeWalt Brushless Twin Kit" class="editorial-image" id="editorial-hero">
+                <div class="image-overlay">
+                    <span class="image-brand">Toolden</span>
+                    <h2 class="image-quote">"Your professional grade tools are in transit."</h2>
+                </div>
+            </div>
+
+            <!-- Order Summary Details Box -->
+            <div class="summary-card" id="order-summary-card">
+                <h3 class="summary-title" id="summary-title-heading">
+                    Order Summary <span>(1 item)</span>
+                </h3>
+                
+                <div class="summary-item">
+                    <span id="product-display-name">DeWalt Brushless Twin Kit</span>
+                    <span id="product-display-price">£69.95</span>
+                </div>
+                
+                <div class="summary-item">
+                    <span>UK Free Shipping</span>
+                    <span style="letter-spacing: 0.05em; font-weight: 600; color: #2e7d32;">FREE</span>
+                </div>
+                
+                <div class="summary-item total">
+                    <span>Total Charged</span>
+                    <span id="product-display-total">£69.95</span>
+                </div>
+            </div>
+        </aside>
+    </main>
+
+    <!-- Interactive FAQ Section -->
+    <section class="container faq-section" id="faq-section-wrapper">
+        <h2 class="faq-title" id="faq-section-title">Delivery & Tracking Information</h2>
+        
+        <div class="faq-grid" id="faq-accordion-grid">
+            
+            <!-- FAQ Item 1 -->
+            <div class="faq-item" id="faq-item-1">
+                <button class="faq-trigger" id="faq-btn-1">
+                    When exactly will I receive the tracking code?
+                    <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                </button>
+                <div class="faq-content">
+                    <div class="faq-inner">
+                        Your parcel is already in route! Because our fulfillment system works automatically, your tracking code will be generated and dispatched to your email address within <strong>3 to 5 business days</strong>. No action is required on your part.
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Item 2 -->
+            <div class="faq-item" id="faq-item-2">
+                <button class="faq-trigger" id="faq-btn-2">
+                    How long does shipping take after dispatch?
+                    <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                </button>
+                <div class="faq-content">
+                    <div class="faq-inner">
+                        Since your package is already in transit, shipping typically takes between <strong>3 to 5 business days</strong> for UK addresses. You will be able to follow its door-to-door transit status once you receive your tracking email.
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Item 3 -->
+            <div class="faq-item" id="faq-item-3">
+                <button class="faq-trigger" id="faq-btn-3">
+                    Can I make changes to my delivery address?
+                    <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                </button>
+                <div class="faq-content">
+                    <div class="faq-inner">
+                        If you need to adjust your shipping address, please contact our priority customer service immediately at <strong>support@toolden.co.uk</strong>. Make sure to include your order ID. Please note that address changes cannot be guaranteed if the local courier has already sorted the parcel.
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Item 4 -->
+            <div class="faq-item" id="faq-item-4">
+                <button class="faq-trigger" id="faq-btn-4">
+                    What is the Toolden return policy?
+                    <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                </button>
+                <div class="faq-content">
+                    <div class="faq-inner">
+                        We offer a complimentary <strong>14-day money-back guarantee</strong>. If you wish to return your items, please email us once your package is received.
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="main-footer">
+        <div class="container">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <img src="../images/tooldenlogo_white_2000x525px_1736154984__26440.webp" alt="Toolden Logo" style="height: 24px; max-width: 120px;">
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="copyright">
+                    &copy; 2026 Toolden. All rights reserved.
+                </div>
+                <div class="footer-legal">
+                    <a href="#" class="legal-link">Privacy Policy</a>
+                    <a href="#" class="legal-link">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Clipboard Copy Toast Notification -->
+    <div id="toast" class="toast">
+        Order ID Copied to Clipboard
+    </div>
+
+    <!-- Script File -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+          // --- ANIMATED CANVAS BACKGROUND ---
+          const canvas = document.getElementById('bg-canvas');
+          if (canvas) {
+              const ctx = canvas.getContext('2d');
+              let particles = [];
+              const particleCount = 45;
+              
+              function resizeCanvas() {
+                  canvas.width = window.innerWidth;
+                  canvas.height = window.innerHeight;
+              }
+              
+              class Particle {
+                  constructor() {
+                      this.reset();
+                  }
+                  
+                  reset() {
+                      this.x = Math.random() * canvas.width;
+                      this.y = Math.random() * canvas.height + canvas.height;
+                      this.size = Math.random() * 1.5 + 0.5;
+                      this.speedY = -(Math.random() * 0.4 + 0.1);
+                      this.speedX = Math.random() * 0.2 - 0.1;
+                      this.opacity = Math.random() * 0.5 + 0.1;
+                      this.fadeSpeed = 0.002 + Math.random() * 0.002;
+                  }
+                  
+                  update() {
+                      this.y += this.speedY;
+                      this.x += this.speedX;
+                      
+                      // Slowly float up and reset
+                      if (this.y < 0) {
+                          this.reset();
+                      }
+                  }
+                  
+                  draw() {
+                      ctx.beginPath();
+                      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                      ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
+                      ctx.fill();
+                  }
+              }
+              
+              function init() {
+                  resizeCanvas();
+                  particles = [];
+                  for (let i = 0; i < particleCount; i++) {
+                      const p = new Particle();
+                      p.y = Math.random() * canvas.height;
+                      particles.push(p);
+                  }
+              }
+              
+              function animate() {
+                  ctx.clearRect(0, 0, canvas.width, canvas.height);
+                  
+                  particles.forEach(p => {
+                      p.update();
+                      p.draw();
+                  });
+                  
+                  requestAnimationFrame(animate);
+              }
+              
+              window.addEventListener('resize', resizeCanvas);
+              init();
+              animate();
+          }
+          
+          // --- FAQ ACCORDION ---
+          const faqItems = document.querySelectorAll('.faq-item');
+          
+          faqItems.forEach(item => {
+              const trigger = item.querySelector('.faq-trigger');
+              const content = item.querySelector('.faq-content');
+              
+              trigger.addEventListener('click', () => {
+                  const isActive = item.classList.contains('active');
+                  
+                  // Close all items
+                  faqItems.forEach(otherItem => {
+                      otherItem.classList.remove('active');
+                      otherItem.querySelector('.faq-content').style.maxHeight = null;
+                  });
+                  
+                  // Open clicked item if it wasn't already active
+                  if (!isActive) {
+                      item.classList.add('active');
+                      content.style.maxHeight = content.scrollHeight + 'px';
+                  }
+              });
+          });
+          
+          // --- ORDER NUMBER COPY WITH TOAST ---
+          const orderNumberEl = document.getElementById('order-number');
+          const toast = document.getElementById('toast');
+          
+          if (orderNumberEl && toast) {
+              orderNumberEl.addEventListener('click', () => {
+                  const textToCopy = orderNumberEl.textContent.trim();
+                  
+                  navigator.clipboard.writeText(textToCopy).then(() => {
+                      toast.classList.add('show');
+                      setTimeout(() => {
+                          toast.classList.remove('show');
+                      }, 3000);
+                  }).catch(err => {
+                      console.error('Failed to copy text: ', err);
+                  });
+              });
+          }
+
+          // --- TIMELINE INTERACTIVE INTERACTION ---
+          const steps = document.querySelectorAll('.timeline-step');
+          steps.forEach((step, idx) => {
+              step.style.opacity = '0';
+              step.style.transform = 'translateY(10px)';
+              step.style.transition = 'all 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
+              
+              setTimeout(() => {
+                  step.style.opacity = '1';
+                  step.style.transform = 'translateY(0)';
+              }, 300 + (idx * 150));
+          });
+
+          // --- URL PARAMETERS SYNC ---
+          const urlParams = new URLSearchParams(window.location.search);
+          
+          let orderId = urlParams.get('id') || urlParams.get('order_id') || urlParams.get('checkout_id');
+          if (!orderId || orderId.includes('{') || orderId.includes('}')) {
+              orderId = localStorage.getItem('customer_order_id') || ('TD' + Math.floor(100000 + Math.random() * 900000));
+          }
+          
+          let customerName = urlParams.get('name') || urlParams.get('username') || urlParams.get('first_name');
+          if (!customerName || customerName.includes('{') || customerName.includes('}')) {
+              customerName = localStorage.getItem('customer_first_name') || '';
+          }
+
+          const purchasePrice = urlParams.get('price') || '69.95';
+          const purchaseCurrency = urlParams.get('currency') || 'GBP';
+          const customerEmail = urlParams.get('email');
+
+          // Update order number
+          if (orderId && orderNumberEl) {
+              orderNumberEl.textContent = '#' + orderId.toUpperCase();
+              const faqInner3 = document.querySelector('#faq-item-3 .faq-inner');
+              if (faqInner3) {
+                  faqInner3.innerHTML = `If you need to adjust your shipping address, please contact our priority customer service immediately at <strong>support@toolden.co.uk</strong>. Make sure to include your order ID <strong>#${orderId.toUpperCase()}</strong>. Please note that address changes cannot be guaranteed if the local courier has already sorted the parcel.`;
+              }
+          }
+
+          // Update thank you greeting
+          const heroTitle = document.getElementById('page-hero-title');
+          if (heroTitle) {
+              if (customerName) {
+                  const formattedName = customerName.charAt(0).toUpperCase() + customerName.slice(1);
+                  heroTitle.innerHTML = `Thank you, ${formattedName}. <br><span>Your order is already in route.</span>`;
+              } else {
+                  heroTitle.innerHTML = `Thank you. <br><span>Your order is already in route.</span>`;
+              }
+          }
+
+          // Update summary items
+          const priceFormatted = '£' + parseFloat(purchasePrice).toFixed(2);
+          document.getElementById('product-display-price').textContent = priceFormatted;
+          document.getElementById('product-display-total').textContent = priceFormatted;
+
+          // Fire purchase pixel tracking
+          window.fbq = window.fbq || function() { 
+              (window.fbq.q = window.fbq.q || []).push(arguments) 
+          };
+
+          const purchaseParams = {
+              value: parseFloat(purchasePrice) || 69.95,
+              currency: purchaseCurrency || 'GBP',
+              content_name: 'DeWalt Brushless Twin Kit',
+              content_type: 'product'
+          };
+
+          if (orderId) {
+              purchaseParams.content_ids = [orderId];
+          }
+          if (customerEmail) {
+              purchaseParams.em = customerEmail.toLowerCase().trim();
+          }
+
+          fbq('track', 'Purchase', purchaseParams);
+      });
+    </script>
+</body>
+</html>
