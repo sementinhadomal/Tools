@@ -1305,33 +1305,77 @@
               purchaseParams.em = customerEmail.toLowerCase().trim();
           }
 
-          // Aguarda a Utmify carregar antes de disparar o Purchase
-          // Tenta por até 10 segundos (a cada 500ms)
+          // Aguarda a Utmify carregar antes de disparar o Purchase (Facebook Pixel)
           var purchaseFired = false;
           var purchaseAttempts = 0;
           function firePurchaseEvent() {
               purchaseAttempts++;
-              // Verifica se fbq real (da Utmify/Facebook) está pronto
               if (typeof fbq === 'function' && fbq.loaded) {
                   if (!purchaseFired) {
                       purchaseFired = true;
                       fbq('track', 'Purchase', purchaseParams);
-                      console.log('[Utmify] Purchase event fired:', purchaseParams);
+                      console.log('[Facebook Pixel] Purchase event fired:', purchaseParams);
                   }
               } else if (purchaseAttempts < 20) {
-                  // Tenta novamente em 500ms
                   setTimeout(firePurchaseEvent, 500);
               } else {
-                  // Fallback: dispara mesmo assim após 10s
                   if (!purchaseFired && typeof fbq === 'function') {
                       purchaseFired = true;
                       fbq('track', 'Purchase', purchaseParams);
-                      console.log('[Utmify] Purchase event fired (fallback):', purchaseParams);
+                      console.log('[Facebook Pixel] Purchase event fired (fallback):', purchaseParams);
                   }
               }
           }
-          // Aguarda 1.5s antes da primeira tentativa (tempo para Utmify carregar)
           setTimeout(firePurchaseEvent, 1500);
+
+          // ═══════════════════════════════════════════════════════════════
+          // UTMIFY WEBHOOK — Registra a venda aprovada via API server-side
+          // ═══════════════════════════════════════════════════════════════
+          const utmParams = new URLSearchParams(window.location.search);
+          const webhookPayload = {
+              orderId: orderId,
+              status: 'approved',
+              isTest: false,
+              customerName: customerName || 'Customer',
+              customerEmail: customerEmail || '',
+              price: parseFloat(purchasePrice) || 69.95,
+              priceInCents: Math.round((parseFloat(purchasePrice) || 69.95) * 100),
+              currency: purchaseCurrency || 'GBP',
+              productId: 'dewalt-brushless-twin-kit',
+              productName: 'DeWalt Brushless Twin Kit',
+              quantity: 1,
+              paymentMethod: 'credit_card',
+              installments: 1,
+              // Captura UTMs da URL se existirem
+              src: utmParams.get('src') || '',
+              sck: utmParams.get('sck') || '',
+              utm_source: utmParams.get('utm_source') || '',
+              utm_medium: utmParams.get('utm_medium') || '',
+              utm_campaign: utmParams.get('utm_campaign') || '',
+              utm_content: utmParams.get('utm_content') || '',
+              utm_term: utmParams.get('utm_term') || ''
+          };
+
+          // Evita duplicar: só dispara uma vez por orderId
+          const webhookKey = 'utmify_sent_' + orderId;
+          if (!sessionStorage.getItem(webhookKey)) {
+              sessionStorage.setItem(webhookKey, 'true');
+
+              fetch('/api/utmify-webhook', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify(webhookPayload)
+              })
+              .then(function(resp) { return resp.json(); })
+              .then(function(data) {
+                  console.log('[Utmify Webhook] Sale registered!', data);
+              })
+              .catch(function(err) {
+                  console.error('[Utmify Webhook] Error:', err);
+              });
+          } else {
+              console.log('[Utmify Webhook] Sale already sent for this order, skipping duplicate.');
+          }
       });
     </script>
 </body>
