@@ -21,17 +21,17 @@
     t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1014024587850948');
+    fbq('init', '1697190990994316');
     fbq('track', 'PageView');
     </script>
     <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1014024587850948&ev=PageView&noscript=1"
+    src="https://www.facebook.com/tr?id=1697190990994316&ev=PageView&noscript=1"
     /></noscript>
     <!-- End Meta Pixel Code -->
 
     <!-- Utmify Pixel Integration -->
     <script>
-      window.pixelId = "68a7a7ba5f9c626b0700177d";
+      window.pixelId = "6a1e39c0710d91ec4444583a";
       var a = document.createElement("script");
       a.setAttribute("async", "");
       a.setAttribute("defer", "");
@@ -1290,11 +1290,7 @@
           document.getElementById('product-display-price').textContent = priceFormatted;
           document.getElementById('product-display-total').textContent = priceFormatted;
 
-          // Fire purchase pixel tracking
-          window.fbq = window.fbq || function() { 
-              (window.fbq.q = window.fbq.q || []).push(arguments) 
-          };
-
+          // Fire purchase pixel tracking — waits for Utmify to be ready
           const purchaseParams = {
               value: parseFloat(purchasePrice) || 69.95,
               currency: purchaseCurrency || 'GBP',
@@ -1309,7 +1305,33 @@
               purchaseParams.em = customerEmail.toLowerCase().trim();
           }
 
-          fbq('track', 'Purchase', purchaseParams);
+          // Aguarda a Utmify carregar antes de disparar o Purchase
+          // Tenta por até 10 segundos (a cada 500ms)
+          var purchaseFired = false;
+          var purchaseAttempts = 0;
+          function firePurchaseEvent() {
+              purchaseAttempts++;
+              // Verifica se fbq real (da Utmify/Facebook) está pronto
+              if (typeof fbq === 'function' && fbq.loaded) {
+                  if (!purchaseFired) {
+                      purchaseFired = true;
+                      fbq('track', 'Purchase', purchaseParams);
+                      console.log('[Utmify] Purchase event fired:', purchaseParams);
+                  }
+              } else if (purchaseAttempts < 20) {
+                  // Tenta novamente em 500ms
+                  setTimeout(firePurchaseEvent, 500);
+              } else {
+                  // Fallback: dispara mesmo assim após 10s
+                  if (!purchaseFired && typeof fbq === 'function') {
+                      purchaseFired = true;
+                      fbq('track', 'Purchase', purchaseParams);
+                      console.log('[Utmify] Purchase event fired (fallback):', purchaseParams);
+                  }
+              }
+          }
+          // Aguarda 1.5s antes da primeira tentativa (tempo para Utmify carregar)
+          setTimeout(firePurchaseEvent, 1500);
       });
     </script>
 </body>
